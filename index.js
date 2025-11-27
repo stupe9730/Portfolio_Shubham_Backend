@@ -24,7 +24,6 @@ app.use(
 );
 
 app.options("*", cors());
-app.use(cors());
 app.use("/api/admin", require("./routes/adminRoute"));
 app.use("/api/project", require("./routes/projectRoute"));
 

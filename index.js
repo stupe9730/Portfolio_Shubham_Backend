@@ -12,10 +12,14 @@ app.use(express.static(path.join(__dirname, "dist")));
 app.use(express.static("uploads"));
 app.use(
   cors({
-    origin: "https://portfolio-shubham-frontend.onrender.com",
+    origin: allowedOrigins,
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+app.options("*", cors());
 app.use(cors());
 app.use("/api/admin", require("./routes/adminRoute"));
 app.use("/api/project", require("./routes/projectRoute"));

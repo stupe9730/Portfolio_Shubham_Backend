@@ -5,6 +5,10 @@ require("dotenv").config({ path: "./.env" });
 const path = require("path");
 
 mongoose.connect(process.env.MONGO_URL);
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://portfolio-shubham-frontend.onrender.com",
+];
 const app = express();
 app.use(express.json());
 
